@@ -43,13 +43,6 @@ div {
     left: 0;
 }
 
-/* #link {
-    background-color: #0a4b33;
-    padding: .5em;
-    display: inline-block;
-    float: center;
-} */
-
 #link {
     background-color: #0a4b33;
     position: absolute;
