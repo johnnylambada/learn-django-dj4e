@@ -8,6 +8,58 @@ body {
 }
 
 /* Here is one of many  CSS rules you will need... */
+
+div {
+    padding: 0.5em;
+    margin: 1em;
+    width: 25%
+}
+
 #one {
-    
+    border: 5px solid #1a41f5;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#two {
+    border: 5px solid #397e26;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#three {
+    border: 5px solid #f1ab37;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#four {
+    border: 5px solid #f9d947;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* #link {
+    background-color: #0a4b33;
+    padding: .5em;
+    display: inline-block;
+    float: center;
+} */
+
+#link {
+    background-color: #0a4b33;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    padding: .5em;
+}
+
+a {
+    color: #EEEEEE;
 }
