@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import sys
+import os
+from importlib import import_module
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,10 +30,25 @@ DEBUG = True
 
 ALLOWED_HOSTS = [ '*' ]
 
+# Assuming other_project is in the parent directory of mysite
+dj4e_samples_settings_path = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__),
+        '..',
+        '..',
+        'dj4e-samples',
+    )
+)
+print(f'dj4e_samples_settings_path: {dj4e_samples_settings_path}')
+sys.path.append(dj4e_samples_settings_path)
 
-# Application definition
+# Import the other_project settings
+dj4e_settings = import_module('dj4e-samples.settings')
 
-INSTALLED_APPS = [
+# Now you can access other_project's INSTALLED_APPS
+dj4e_project_apps = getattr(dj4e_settings, 'INSTALLED_APPS', [])
+
+INSTALLED_APPS = list(dict.fromkeys([
     "polls.apps.PollsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -38,7 +56,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-]
+] + dj4e_project_apps
+                                    ))
+print(f'INSTALLED_APPS: {INSTALLED_APPS}')
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

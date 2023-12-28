@@ -31,4 +31,5 @@ urlpatterns = [
         {'document_root': SITE_ROOT, 'show_indexes': True},
         name='site_path'
     ),
+    path('dj4e-samples/', include('dj4e-samples.dj4e-samples.urls')),
 ]
