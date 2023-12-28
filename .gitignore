@@ -78,6 +78,9 @@ docs/_build/
 target/
 
 
+# Pycharm
+.idea/
+
 ### Django ###
 *.log
 *.pot
